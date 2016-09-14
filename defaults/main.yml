@@ -1,0 +1,3 @@
+---
+
+remi_php_version: "{{ common_php_version | default('7.0') }}"

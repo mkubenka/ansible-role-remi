@@ -1,0 +1,21 @@
+---
+
+galaxy_info:
+  author: Michal Kubenka
+  description: Remi's RPM repository Role.
+  company: SAGES, s.r.o.
+  license: BSD
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Amazon
+      versions:
+        - all
+  galaxy_tags:
+    - packaging
+
+dependencies:
+  - epel
