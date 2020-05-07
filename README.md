@@ -15,8 +15,8 @@ them are as follows. (For all variables, take a look at [defaults/main.yml](defa
 
 ```yaml
 
-# Possible values: 5.5, 5.6, 7.0, 7.1
-remi_php_version: "7.1"
+# Possible values: 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4
+remi_php_version: "7.4"
 
 ```
 
