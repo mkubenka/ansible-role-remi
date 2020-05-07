@@ -27,6 +27,8 @@ verifier:
 
 platforms:
   - name: centos-6
+    driver_config:
+      dockerfile: test/Dockerfile.centos6
   - name: centos-7
     driver_config:
       dockerfile: test/Dockerfile.centos7
