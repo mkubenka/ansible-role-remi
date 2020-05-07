@@ -18,6 +18,8 @@ provisioner:
   require_ruby_for_busser: false
   ansible_verbose: true
   ansible_verbosity: 2
+  # TODO: Can be removed with CentOS 6.
+  galaxy_ignore_certs: true
   requirements_path: requirements.yml
 
 verifier:
