@@ -38,15 +38,19 @@ platforms:
           ebs:
             volume_type: gp2
             delete_on_termination: true
-  - name: amazon
-    driver:
-      image_search:
-        owner-alias: "amazon"
-        name: amzn-ami*2016.03*gp2
-    transport:
-      username: ec2-user
-    provisioner:
-      ansible_platform: "amazon" # Autodetect is failing for some reason :(
+  # Not available yet, see https://bugs.centos.org/view.php?id=16614
+  # - name: centos-8
+  #   driver:
+  #     image_search:
+  #       owner-alias: "aws-marketplace"
+  #       name: "CentOS Linux 8*"
+  #     block_device_mappings:
+  #       - device_name: /dev/sda1
+  #         ebs:
+  #           volume_type: gp2
+  #           delete_on_termination: true
+  #   transport:
+  #     username: centos
 
 suites:
   - name: default

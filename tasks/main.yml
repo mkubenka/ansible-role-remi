@@ -1,47 +1,53 @@
 ---
 
-- block:
+- when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6'
+  block:
+
     - name: copy repository definition
       template:
-        src=centos6/remi.repo.j2
-        dest=/etc/yum.repos.d/remi.repo
-        backup=yes
+        src: centos6/remi.repo.j2
+        dest: /etc/yum.repos.d/remi.repo
+        backup: yes
 
     - name: import the GPG key
       template:
-        src=centos6/RPM-GPG-KEY-remi
-        dest=/etc/pki/rpm-gpg
-        backup=yes
+        src: centos6/RPM-GPG-KEY-remi
+        dest: /etc/pki/rpm-gpg
+        backup: yes
 
-  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6'
+- when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'
+  block:
 
-- block:
     - name: copy repository definition
       template:
-        src=centos6/remi.repo.j2
-        dest=/etc/yum.repos.d/remi.repo
-        backup=yes
+        src: centos7/remi.repo.j2
+        dest: /etc/yum.repos.d/remi.repo
+        backup: yes
 
     - name: import the GPG key
       template:
-        src=centos6/RPM-GPG-KEY-remi
-        dest=/etc/pki/rpm-gpg
-        backup=yes
+        src: centos7/RPM-GPG-KEY-remi
+        dest: /etc/pki/rpm-gpg
+        backup: yes
 
-  when: ansible_distribution == 'Amazon'
 
-- block:
-    - name: copy repository definition
+- when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '8'
+  block:
+
+    - name: copy repository definitions
       template:
-        src=centos7/remi.repo.j2
-        dest=/etc/yum.repos.d/remi.repo
-        backup=yes
+        src: "centos8/{{ item }}.j2"
+        dest: "/etc/yum.repos.d/{{ item }}"
+        backup: yes
+      with_items:
+        - remi.repo
+        - remi-modular.repo
+        - remi-safe.repo
 
     - name: import the GPG key
       template:
-        src=centos7/RPM-GPG-KEY-remi
-        dest=/etc/pki/rpm-gpg
-        backup=yes
+        src: centos8/RPM-GPG-KEY-remi.el8
+        dest: /etc/pki/rpm-gpg
+        backup: yes
 
-  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'
 
