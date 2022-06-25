@@ -14,7 +14,6 @@ install:
   - bundle install --jobs=3 --retry=3
 
 env:
-  - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
   - INSTANCE=default-rocky-8
 
